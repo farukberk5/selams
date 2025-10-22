@@ -4,15 +4,12 @@ import {
   Meta,
   Schema,
   AvatarGroup,
-  Button,
   Column,
-  Flex,
+  Row,
+  Text,
   Heading,
   Media,
-  Text,
   SmartLink,
-  Row,
-  Avatar,
   Line,
 } from "@once-ui-system/core";
 import { baseURL, about, person, projects } from "@/resources";
@@ -21,12 +18,9 @@ import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/projects/Projects";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "projects", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// ✅ Build-time yerine runtime render için ayarlar
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function generateMetadata({
   params,
@@ -39,14 +33,14 @@ export async function generateMetadata({
     : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "projects", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
+  const post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: baseURL,
+    baseURL,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
     path: `${projects.path}/${post.slug}`,
   });
@@ -62,15 +56,14 @@ export default async function Project({
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "projects", "projects"]).find((post) => post.slug === slugPath);
+  const posts = getPosts(["src", "app", "projects", "projects"]);
+  const post = posts.find((post) => post.slug === slugPath);
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
+    post.metadata.team?.map((member) => ({
+      src: member.avatar,
     })) || [];
 
   return (
@@ -84,7 +77,8 @@ export default async function Project({
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
         image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+          post.metadata.image ||
+          `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
         }
         author={{
           name: person.name,
@@ -92,6 +86,7 @@ export default async function Project({
           image: `${baseURL}${person.avatar}`,
         }}
       />
+
       <Column maxWidth="s" gap="16" horizontal="center" align="center">
         <SmartLink href="/projects">
           <Text variant="label-strong-m">Projects</Text>
@@ -101,6 +96,7 @@ export default async function Project({
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
+
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
@@ -118,12 +114,21 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
+
       {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+        <Media
+          priority
+          aspectRatio="16 / 9"
+          radius="m"
+          alt="image"
+          src={post.metadata.images[0]}
+        />
       )}
+
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
       </Column>
+
       <Column fillWidth gap="40" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
         <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
@@ -131,6 +136,7 @@ export default async function Project({
         </Heading>
         <Projects />
       </Column>
+
       <ScrollToHash />
     </Column>
   );
