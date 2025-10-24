@@ -4,13 +4,13 @@ import { ProjectCard } from "@/components";
 const projects = [
   {
     slug: "proje-1",
-    images: ["/pics/İç render.png"],
+    images: ["/pics/icrender.png"],
     title: "Modern ve Ferah İç Mekan",
     summary: "Geniş pencereleri, minimalist mobilyaları ve doğal ışık kullanımıyla ferah ve modern bir yaşam alanı sunan bu iç mekan projesi, konfor ve estetiği bir araya getiriyor.",
   },
   {
     slug: "proje-2",
-    images: ["/pics/RENDER ÖN CEPHE.jpeg"],
+    images: ["/pics/öncephe.jpeg"],
     title: "Ön Cephe Tasarımı",
     summary: "Binanın kimliğini yansıtan modern ve şık bir ön cephe tasarımı. Ahşap ve betonun uyumuyla dikkat çeken bu proje, estetik ve fonksiyonelliği buluşturuyor.",
   },
