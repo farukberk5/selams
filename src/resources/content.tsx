@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "İnşaat",
   name: `Haktan Teymur İnşaat`,
   role: "Yapı ve İnşaat",
-  avatar: "/pics/HT LOGO.PNG",
+  avatar: "/pics/websitelogo.png",
   email: "",
   location: "Turkey",
   languages: [],

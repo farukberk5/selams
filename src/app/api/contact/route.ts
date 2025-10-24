@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       `,
       attachments: [
         {
-          filename: 'HT LOGO.PNG',
+          filename: 'websitelogo.png',
           path: `${process.cwd()}/public/pics/HT LOGO.PNG`,
           cid: 'logo'
         }

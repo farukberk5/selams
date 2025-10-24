@@ -14,10 +14,10 @@ import { home, about, person, baseURL, services } from "@/resources";
 import { FaTruck, FaCube, FaIndustry } from 'react-icons/fa';
 
 const sliderImages = [
-  "/pics/RENDER ÖN CEPHE.jpeg",
-  "/pics/RENDER TEK CEPHE.jpeg",
-  "/pics/RENDER YAN CEPHE.jpeg",
-  "/pics/tek cephe render.jpeg",
+  "/pics/öncephe.jpeg",
+  "/pics/rendertekcephe.jpeg",
+  "/pics/yancephe.jpeg",
+  "/pics/tekcephe.jpeg",
 ];
 
 const keyServices = [
@@ -68,22 +68,22 @@ export default function Home() {
           items={sliderImages.map(image => ({ slide: image, alt: home.title }))}
           style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)' }}
         />
-        <Column 
-          position="absolute" 
-          fillWidth 
-          fillHeight 
-          horizontal="center" 
-          vertical="center" 
+        <Column
+          position="absolute"
+          fillWidth
+          fillHeight
+          horizontal="center"
+          vertical="center"
           zIndex={1}
         >
-          <Column 
-            style={{ 
+          <Column
+            style={{
               background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)',
               backdropFilter: 'blur(10px)',
             }}
-            padding="xl" 
-            radius="l" 
-            gap="m" 
+            padding="xl"
+            radius="l"
+            gap="m"
             horizontal="center"
           >
             <Heading align="center" variant="display-strong-xl">{home.headline}</Heading>
@@ -100,7 +100,7 @@ export default function Home() {
             <Button href={about.path} variant="primary" size="l" arrowIcon>Hakkımızda Daha Fazla Bilgi</Button>
           </Column>
           <Column flex={1}>
-            <img src="/pics/HT LOGO.PNG" alt="Haktan Teymur İnşaat Logo" style={{width: "100%", maxWidth: "300px", margin: "auto"}}/>
+            <img src="/pics/websitelogo.png" alt="Haktan Teymur İnşaat Logo" style={{width: "100%", maxWidth: "300px", margin: "auto"}}/>
           </Column>
         </Row>
 

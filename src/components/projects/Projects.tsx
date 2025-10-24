@@ -16,19 +16,19 @@ const projects = [
   },
   {
     slug: "proje-3",
-    images: ["/pics/RENDER TEK CEPHE.jpeg"],
+    images: ["/pics/rendertekcephe.jpeg"],
     title: "Minimalist Tek Cephe",
     summary: "Sade ve modern bir anlayışla tasarlanan bu tek cephe projesi, minimalist çizgileri ve net detaylarıyla öne çıkıyor.",
   },
   {
     slug: "proje-4",
-    images: ["/pics/RENDER YAN CEPHE.jpeg"],
+    images: ["/pics/yancephe.jpeg"],
     title: "Estetik Yan Cephe",
     summary: "Binanın yan cephesinde kullanılan modern materyaller ve geometrik formlar, yapıya dinamik ve estetik bir görünüm kazandırıyor.",
   },
   {
     slug: "proje-5",
-    images: ["/pics/tek cephe render.jpeg"],
+    images: ["/pics/tekcephe.jpeg"],
     title: "Konut Projesi Ön Görünüm",
     summary: "Modern bir konut projesinin ön cephesini yansıtan bu render çalışması, projenin genel estetiği ve mimari anlayışı hakkında ipuçları veriyor.",
   },

@@ -187,7 +187,7 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: "/pics/HT LOGO.PNG",
+  logo: "/pics/websitelogo.png",
   type: "Organization",
   name: "Haktan Teymur İnşaat",
   description: home.description,
