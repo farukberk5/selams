@@ -96,7 +96,7 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
               {person.location && <Row gap="8" vertical="center">
                 <Icon onBackground="accent-weak" name="globe" />
-                İstanbul
+                Gaziantep
               </Row>}
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
